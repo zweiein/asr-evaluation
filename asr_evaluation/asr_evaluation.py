@@ -80,22 +80,28 @@ def main(args):
         print_confusions()
     if wer_vs_length_p:
         print_wer_vs_length()
+        
+    print('Sentence count: {}'.format(counter))        
     # Compute WER and WRR
     if ref_token_count > 0:
         wrr = match_count / ref_token_count
         wer = error_count / ref_token_count
+        print('WER: {:10.3%} ({:10d} / {:10d})'.format(wer, error_count, ref_token_count))
+        print('WRR: {:10.3%} ({:10d} / {:10d})'.format(wrr, match_count, ref_token_count))
     else:
-        wrr = 0.0
-        wer = 0.0
+        wrr = "-nan"
+        wer = "-nan"
+        print('WER: {}% ({:10d} / {:10d})'.format(wer, error_count, ref_token_count))
+        print('WRR: {}% ({:10d} / {:10d})'.format(wrr, match_count, ref_token_count))
     # Compute SER
     if counter > 0:
         ser = sent_error_count / counter
+        print('SER: {:10.3%} ({:10d} / {:10d})'.format(ser, sent_error_count, counter))
     else:
-        ser = 0.0
-    print('Sentence count: {}'.format(counter))
-    print('WER: {:10.3%} ({:10d} / {:10d})'.format(wer, error_count, ref_token_count))
-    print('WRR: {:10.3%} ({:10d} / {:10d})'.format(wrr, match_count, ref_token_count))
-    print('SER: {:10.3%} ({:10d} / {:10d})'.format(ser, sent_error_count, counter))
+        ser = "-nan"
+        print('SER: {}% ({:10d} / {:10d})'.format(ser, sent_error_count, counter))    
+    
+    
 
 
 def process_line_pair(ref_line, hyp_line, case_insensitive=False, remove_empty_refs=False):
