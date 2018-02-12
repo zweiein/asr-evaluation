@@ -18,19 +18,13 @@ Please let me know if you have any comments, questions, or problems.
 
 Installing & uninstalling
 -------------------------
-The easiest way to install is using pip:
 
-    pip install asr-evaluation
 
-Alternatively you can clone this git repo and install using distutils:
+You can clone this git repo and install using distutils:
 
-    git clone git@github.com:belambert/asr-evaluation.git
+    git clone git@https://github.com/zweiein/asr-evaluation.git
     cd asr-evaluation
     python setup.py install
-
-To uninstall with pip:
-
-    pip uninstall asr-evaluation
 
 
 Command line usage
