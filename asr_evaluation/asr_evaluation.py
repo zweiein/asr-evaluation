@@ -86,8 +86,8 @@ def main(args):
     if ref_token_count > 0:
         wrr = match_count / ref_token_count
         wer = error_count / ref_token_count
-        print('WER: {:10.3%} ({:10d} / {:10d})'.format(wer, error_count, ref_token_count))
-        print('WRR: {:10.3%} ({:10d} / {:10d})'.format(wrr, match_count, ref_token_count))
+        print('WER: {:10.1%} ({:10d} / {:10d})'.format(wer, error_count, ref_token_count))
+        print('WRR: {:10.1%} ({:10d} / {:10d})'.format(wrr, match_count, ref_token_count))
     else:
         wrr = "-nan"
         wer = "-nan"
@@ -96,7 +96,7 @@ def main(args):
     # Compute SER
     if counter > 0:
         ser = sent_error_count / counter
-        print('SER: {:10.3%} ({:10d} / {:10d})'.format(ser, sent_error_count, counter))
+        print('SER: {:10.1%} ({:10d} / {:10d})'.format(ser, sent_error_count, counter))
     else:
         ser = "-nan"
         print('SER: {}% ({:10d} / {:10d})'.format(ser, sent_error_count, counter))    
